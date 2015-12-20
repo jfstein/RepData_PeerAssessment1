@@ -40,7 +40,7 @@ data0<-aggregate(data$steps,list(data$date),sum)
 good<-!is.na(data0$x)
 data0<-data0[good,]
 
-hist(data0$x,breaks=10,main="Histogram of Total Steps Taken/Day",xlab="Total Steps/Day",ylab="Frequency")
+hist(data0$x,breaks=10,main="Histogram of Total Steps Taken/Day",xlab="Total Steps/Day",ylab="Freq")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
@@ -69,7 +69,7 @@ Make a time series plot of the 5-minute interval (x-axis) and the average number
 
 ```r
 data0<-aggregate(data$steps,list(data$interval),mean,na.rm=TRUE, na.action=NULL)
-plot(data0,type="l",main="Mean Steps Taken per Interval Over Analysis Period",xlab="Five Minute Interval",ylab="Mean Steps")
+plot(data0,type="l",main="Mean Steps Taken per 5-Minute Interval",xlab="5-Minute Interval",ylab="Mean Steps")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-5-1.png) 
@@ -117,7 +117,7 @@ data0<-aggregate(datafill$steps,list(datafill$date),sum)
 Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day.
 
 ```r
-hist(data0$x,breaks=10,main="Histogram of Total Steps Taken/Day (Imputed NAs)",xlab="Total Steps/Day",ylab="Frequency")
+hist(data0$x,breaks=10,main="Histogram of Total Steps Taken/Day (Imputed NAs)",xlab="Total Steps/Day",ylab="Freq")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
@@ -205,7 +205,7 @@ final<-rbind(datafill_we_mean,datafill_wd_mean)
 Make a panel plot containing a time series plot of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). 
 
 ```r
-xyplot(x~Group.1|type,data=final,layout=c(1,2),xlab="Interval",ylab="Number of Steps",main="Mean Number of Steps by Interval",type="l")
+xyplot(x~Group.1|type,data=final,layout=c(1,2),xlab="Interval",ylab="Number of Steps",main="Mean Number of Steps per 5-Minute Interval",type="l")
 ```
 
 ![](PA1_template_files/figure-html/unnamed-chunk-17-1.png) 
